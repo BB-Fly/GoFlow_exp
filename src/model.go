@@ -47,6 +47,28 @@ type Response struct {
 	PageNum     int        `json:"page_num"`     // 页码
 }
 
+// Order 订单信息
+type Order struct {
+	ID              string `json:"id"`              // 订单ID
+	RequiredSeats   int    `json:"required_seats"`   // 座位数
+	City            string `json:"city"`            // 城市
+	DepartureTime   string `json:"departure_time"`   // 乘车时间
+}
+
+// PreLockContext 预锁库存上下文结构
+type PreLockContext struct {
+	Order            Order
+	CarpoolPool      []Order
+	PreLockPool      []Order
+	LockedShift      string
+	ShiftVersion     string
+	PreLockInventory int
+	ShiftInventory   int
+	RealTimeFeature  map[string]interface{}
+	LockSuccess      bool
+	Response         Response
+}
+
 // ScheduleContext 上下文结构
 type ScheduleContext struct {
 	AllSchedules     []Schedule
