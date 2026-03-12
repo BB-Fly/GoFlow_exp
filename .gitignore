@@ -1,1 +1,5 @@
 vendor/*
+build/*
+.goflow.pid
+dump.rdb
+gin.log
